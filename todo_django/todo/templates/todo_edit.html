@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Add todo
+{% endblock %}
+
+{% block heading %}
+    Add todo
+{% endblock %}
+
+{% block body %}
+  <form action="{% url 'todo-edit' todo.id %}" method="post">
+    {% csrf_token %}
+    <label for="description">Description</label>
+    <input type="text" id="description" name="description" value="{{todo.description}}">
+    <label for="is_done">Is Done</label>
+    {% if not todo.is_done %}
+      <input type="checkbox" id="is_done" name="is_done">
+    {% else %}
+      <input type="checkbox" id="is_done" name="is_done" checked>
+    {% endif %}
+    <input type="submit" name="submit" value="Edit todo">
+  </form>
+{% endblock %}
