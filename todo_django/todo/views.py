@@ -65,8 +65,7 @@ class TodoEditView(View):
             todo.is_done = True
         else:
             todo.is_done = False
-        todo.save()    
-        import pdb; pdb.set_trace()  
+        todo.save()            
         return HttpResponseRedirect('/')
 
 
